@@ -20,3 +20,8 @@ executer les un a un:
 
 - Supprimer les données
 `docker-compose exec -T db psql -U postgres -d newspaper -p 5433 < database/delete.sql`
+
+
+### S'il y a un probleme sur le build pour la raison du dernier ligne : 
+executer ceci : 
+  `sed -i 's/\r$//' build.sh`
