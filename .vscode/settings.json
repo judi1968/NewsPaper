@@ -1,0 +1,11 @@
+{
+    "java.project.sourcePaths": [
+        "application/src/main/java/project"
+    ],
+    "java.project.referencedLibraries": [
+        "application/lib/gson-2.10.1.jar",
+        "application/lib/jframework.jar",
+        "application/lib/postgresql-42.6.0.jar",
+        "application/lib/servlet-api.jar"
+    ]
+}
