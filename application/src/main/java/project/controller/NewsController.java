@@ -15,7 +15,9 @@ import jframework.annotation.PostUrl;
 import jframework.annotation.Url;
 import jframework.session.Session;
 import jframework.tools.ModelView;
+import jframework.web.JFile;
 import model.table.News;
+import model.dto.NewsDTO;
 import pja.databases.MyConnection;
 import pja.databases.generalisation.DB;
 import jframework.annotation.RequestParam;
@@ -44,6 +46,54 @@ public class NewsController {
         // Vérifier et initialiser chaque attribut
         modelView.setView("pages/back-office/news-form.jsp");
         return modelView;
+    }
+
+    @PostUrl("/news")
+    public ModelView saveOrUpdateNews(NewsDTO news) throws Exception {
+        ModelView modelView = new ModelView();
+        Connection connection = null;
+        
+        try {
+            connection = MyConnection.connect();
+            connection.setAutoCommit(false);
+            News newsObject = new News();
+            newsObject.setContenu(news.getContenu());
+            newsObject.setDatePublication(news.getDatePublication());
+            newsObject.setAltImagesCouverture(news.getAlternativeCouverture());
+            newsObject.buildTitle();
+            newsObject.buildHref();
+            // Gérer l'image de couverture (enregistrer le fichier et stocker le chemin)
+            // JFile image = news.getImageCouverture();
+            // image.transferTo("./"); // Assurez-vous de définir le chemin de sauvegarde
+            // newsObject.setImagesCouverture(image.getName()); // Stocker le chemin de l
+            String message = "";
+           /*  if (news.getId() == null) {*/
+                message = "Actualité créée avec succès !";
+            /* } else {
+                message = "Actualité modifiée avec succès !";
+            }*/
+            
+            // Sauvegarde avec votre DB.save
+            DB.save(newsObject, connection);
+            connection.commit();
+            
+            modelView.addData("success", message);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (connection != null) {
+                connection.rollback();
+            }
+            modelView.addData("error", "Erreur : " + e.getMessage());
+        } finally {
+            if (connection != null) {
+                connection.close();
+            }
+        }
+
+        modelView.setView("pages/back-office/news-form.jsp");
+        return modelView ;
+
     }
 
 }

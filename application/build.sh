@@ -15,6 +15,7 @@ LIB_DIR="$PROJECT_DIR/lib"
 TOMCAT_WEBAPPS="${TOMCAT_WEBAPPS:-/usr/local/tomcat/webapps}"
 APP_PATH="$TOMCAT_WEBAPPS/$APP_NAME.war"
 
+echo "DATE BUILD: $(date)"
 echo "Projet = $PROJECT_DIR"
 
 # ====== RESET BUILD ======

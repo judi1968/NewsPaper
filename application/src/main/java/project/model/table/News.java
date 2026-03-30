@@ -27,6 +27,33 @@ public class News {
     
     @AttributDb(name = "alt_images_couverture")
     private String altImagesCouverture;
+
+    @AttributDb(name = "title")
+    private String title;
+
+    
+    @AttributDb(name = "href")
+    private String href;
+    
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    
+
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
     
     // Relation avec les images (non mappée directement dans la base)
     private List<ImagesNews> images;
@@ -106,7 +133,7 @@ public class News {
 
     @ShowTable(name = "Titre", numero = 1)
     public String getTitleInfo() {
-        return HtmlUtils.extractH1Content(contenu);
+        return this.getTitle();
     }
 
     @ShowTable(name = "Date Sortie", numero = 2)
@@ -128,5 +155,13 @@ public class News {
                         "</div>" + //
                         "</div>" + //
                         "</td>";
+    }
+
+    public void buildHref() {
+        this.href = HtmlUtils.getHref(this.contenu);
+    }
+
+    public void buildTitle() {
+        this.title = HtmlUtils.extractH1Content(this.contenu);
     }
 }

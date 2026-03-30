@@ -2,8 +2,9 @@
 -- Insertion des actualités (news)
 -- ========================================
 
-INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couverture, href) VALUES
+INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images_couverture, href) VALUES
 (
+    'Lancement officiel de notre plateforme SEO Web Design',
     '<h1>Lancement officiel de notre plateforme SEO Web Design</h1>
     <p>Nous sommes ravis d''annoncer le lancement de notre nouvelle plateforme dédiée au référencement et au web design.</p>
     <h2>Fonctionnalités principales</h2>
@@ -20,6 +21,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'lancement-officiel-de-notre-plateforme-seo-web-design'
 ),
 (
+    'Nouvelle fonctionnalité Analyse SEO en temps réel',
     '<h1>Nouvelle fonctionnalité Analyse SEO en temps réel</h1>
     <p>Désormais, vous pouvez suivre vos positions sur Google en temps réel.</p>
     <h2>Avantages de l''analyse en temps réel</h2>
@@ -37,6 +39,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'nouvelle-fonctionnalite-analyse-seo-en-temps-reel'
 ),
 (
+    'Webinaire gratuit Les bonnes pratiques SEO pour 2024',
     '<h1>Webinaire gratuit Les bonnes pratiques SEO pour 2024</h1>
     <p>Rejoignez-nous pour un webinaire exclusif animé par nos experts SEO.</p>
     <h2>Au programme</h2>
@@ -54,6 +57,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'webinaire-gratuit-les-bonnes-pratiques-seo-pour-2024'
 ),
 (
+    'Succès Notre site atteint 10000 visites par mois',
     '<h1>Succès Notre site atteint 10000 visites par mois</h1>
     <p>Nous célébrons une étape importante aujourd''hui.</p>
     <h2>Chiffres clés</h2>
@@ -70,6 +74,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'succes-notre-site-atteint-10000-visites-par-mois'
 ),
 (
+    'Mise à jour majeure Nouveau tableau de bord amélioré',
     '<h1>Mise à jour majeure Nouveau tableau de bord amélioré</h1>
     <p>Nous avons repensé votre interface d''administration pour la rendre plus intuitive et plus puissante.</p>
     <h2>Nouveautés</h2>
@@ -87,6 +92,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'mise-a-jour-majeure-nouveau-tableau-de-bord-ameliore'
 ),
 (
+    'Application mobile SEO Web Design disponible',
     '<h1>Application mobile SEO Web Design disponible</h1>
     <p>Téléchargez notre application mobile pour suivre vos performances SEO où que vous soyez.</p>
     <h2>Fonctionnalités de l''application</h2>
@@ -103,6 +109,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'application-mobile-seo-web-design-disponible'
 ),
 (
+    'Prix de l innovation SEO 2024',
     '<h1>Prix de l innovation SEO 2024</h1>
     <p>Nous sommes fiers d''annoncer que notre plateforme a reçu le prix de l''innovation aux SEO Awards 2024.</p>
     <h2>Récompense</h2>
@@ -119,6 +126,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'prix-de-l-innovation-seo-2024'
 ),
 (
+    'Nouvelle formation Maîtrisez le SEO en 30 jours',
     '<h1>Nouvelle formation Maîtrisez le SEO en 30 jours</h1>
     <p>Inscrivez-vous dès maintenant à notre programme de formation complet.</p>
     <h2>Contenu de la formation</h2>
@@ -136,6 +144,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'nouvelle-formation-maitrisez-le-seo-en-30-jours'
 ),
 (
+    'Partenariat avec Google Accès aux données officielles',
     '<h1>Partenariat avec Google Accès aux données officielles</h1>
     <p>Nous sommes désormais partenaires officiels de Google.</p>
     <h2>Avantages du partenariat</h2>
@@ -152,6 +161,7 @@ INSERT INTO news (contenu, date_publication, images_couverture, alt_images_couve
     'partenariat-avec-google-acces-aux-donnees-officielles'
 ),
 (
+    'Optimisation technique Réduction du temps de chargement de 50%',
     '<h1>Optimisation technique Réduction du temps de chargement de 50%</h1>
     <p>Grâce à nos dernières optimisations, le temps de chargement de votre tableau de bord a été divisé par deux.</p>
     <h2>Optimisations réalisées</h2>

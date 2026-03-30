@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS news (
     date_publication DATE NOT NULL,
     images_couverture TEXT,
     alt_images_couverture TEXT,
-    href TEXT
+    href TEXT,
+    title TEXT
 );
 
 -- Table images_news

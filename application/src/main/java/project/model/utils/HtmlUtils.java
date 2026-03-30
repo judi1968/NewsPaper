@@ -1,13 +1,38 @@
 package model.utils;
 
+import java.text.Normalizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class HtmlUtils {
+
+    public static String getHref(String contenu) {
+        String input = extractH1Content(contenu);
+
+        // 1. Minuscule
+        String slug = input.toLowerCase();
+
+        // 2. Supprimer les accents
+        slug = Normalizer.normalize(slug, Normalizer.Form.NFD);
+        slug = slug.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+
+        // 3. Supprimer caractères spéciaux
+        slug = slug.replaceAll("[^a-z0-9\\s-]", "");
+
+        // 4. Remplacer espaces par tirets
+        slug = slug.replaceAll("\\s+", "-");
+
+        // 5. Nettoyer les tirets en trop
+        slug = slug.replaceAll("-{2,}", "-");
+
+        return slug.trim();
+    }
     
     /**
      * Extrait le contenu de la balise h1 avec gestion des caractères spéciaux
      */
+
+
     public static String extractH1Content(String html) {
         if (html == null || html.isEmpty()) {
             return "";

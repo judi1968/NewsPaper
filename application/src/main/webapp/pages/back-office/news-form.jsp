@@ -11,17 +11,51 @@
     <%@ include file="../../includes/head.jsp" %>
 </head>
 <script src="${pageContext.request.contextPath}/assets/vendor/tinymce/js/tinymce/tinymce.min.js"></script>
- <script>
-        tinymce.init({
-            selector: 'textarea',
-            license_key: 'gpl',  // Active le mode open-source
-            height: 500,
-            plugins: 'lists link image table code help wordcount',
-            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image code',
-            toolbar_mode: 'floating',
-            branding: false  // Cache le logo TinyMCE (optionnel)
+<script>
+tinymce.init({
+    selector: 'textarea',
+    license_key: 'gpl',
+    height: 500,
+    plugins: 'lists link image table code help wordcount',
+    toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image code',
+    toolbar_mode: 'floating',
+    branding: false,
+    
+    // Configuration pour l'upload vers servlet
+    automatic_uploads: true,
+    images_upload_url: '/uploadImage',  // URL de votre servlet
+    
+    images_upload_handler: function(blobInfo, progress) {
+        return new Promise(function(resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/uploadImage');
+            
+            // Suivi de la progression
+            xhr.upload.onprogress = function(e) {
+                progress(e.loaded / e.total * 100);
+            };
+            
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // La servlet doit retourner l'URL de l'image
+                    resolve(xhr.responseText);
+                } else {
+                    reject('Erreur upload: ' + xhr.status);
+                }
+            };
+            
+            xhr.onerror = function() {
+                reject('Erreur de connexion');
+            };
+            
+            var formData = new FormData();
+            formData.append('file', blobInfo.blob(), blobInfo.filename());
+            xhr.send(formData);
         });
-    </script>
+    }
+});
+</script>
+
 <body>
 
    <div id="preloader">
@@ -114,14 +148,14 @@
                             <div class="card-body">
                                 <div class="basic-form">
                                 <% if(news == null) { %>
-                                    <form action="${pageContext.request.contextPath}/news" method="post">
+                                    <form action="${pageContext.request.contextPath}/news" method="post" enctype="multipart/form-data">
                                         <div class="row">
                                             <!-- Contenu de l'actualite -->
                                             <div class="mb-3 col-md-12">
                                                 <label class="form-label">Contenu de l'actualite</label>
                                                 <textarea 
                                                     class="form-control"
-                                                    name="contenu"
+                                                    name="news.contenu"
                                                     rows="10"
                                                     id="monEditeur"
                                                 ></textarea>
@@ -136,18 +170,18 @@
                                                 <input 
                                                     type="date"
                                                     class="form-control"
-                                                    name="datePublication"
+                                                    name="news.datePublication"
                                                     required
                                                 >
                                             </div>
 
                                             <!-- Image de couverture -->
                                             <div class="mb-3 col-md-6">
-                                                <label class="form-label">Image de couverture (URL)</label>
+                                                <label class="form-label">Image de couverture </label>
                                                 <input 
-                                                    type="text"
+                                                    type="file"
                                                     class="form-control"
-                                                    name="imagesCouverture"
+                                                    name="news.imageCouverture"
                                                     placeholder="/images/news/couverture.jpg"
                                                 >
                                             </div>
@@ -170,7 +204,7 @@
                                         </button>
                                     </form>
                                 <% } else { %>
-                                    <form action="${pageContext.request.contextPath}/news" method="post">
+                                    <form action="${pageContext.request.contextPath}/news" method="post" enctype="multipart/form-data">
                                         <input type="hidden" name="news.id" value="<%= news.getId() %>">
                                         <div class="row">
                                             <!-- Contenu de l'actualite -->
@@ -201,23 +235,24 @@
 
                                             <!-- Image de couverture -->
                                             <div class="mb-3 col-md-6">
-                                                <label class="form-label">Image de couverture (URL)</label>
+                                                <label class="form-label">Image de couverture </label>
                                                 <input 
-                                                    type="text"
+                                                    type="file"
                                                     class="form-control"
-                                                    name="news.imagesCouverture"
-                                                    value="<%= news.getImagesCouverture() != null ? news.getImagesCouverture() : "" %>"
+                                                    name="news.imageCouverture"
                                                     placeholder="/images/news/couverture.jpg"
                                                 >
                                             </div>
 
+                                            <!-- Image de couverture -->
+                                            
                                             <!-- Texte alternatif de l'image -->
                                             <div class="mb-3 col-md-12">
                                                 <label class="form-label">Texte alternatif de l'image</label>
                                                 <input 
                                                     type="text"
                                                     class="form-control"
-                                                    name="news.altImagesCouverture"
+                                                    name="news.alternativeCouverture"
                                                     value="<%= news.getAltImagesCouverture() != null ? news.getAltImagesCouverture() : "" %>"
                                                     placeholder="Description de l'image pour le SEO"
                                                 >
