@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: newspaper
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  builder:
+    image: eclipse-temurin:17-jdk
+    working_dir: /src
+    volumes:
+      - ./:/src  # Enlevé :ro pour permettre l'écriture
+      - war_data:/artifacts
+    environment:
+      TOMCAT_WEBAPPS: /artifacts
+    command: /bin/sh -c "chmod +x /src/build.sh && /src/build.sh"
+
+  app:
+    image: tomcat:10.1-jdk17-temurin
+    restart: unless-stopped
+    depends_on:
+      - db
+      - builder
+    volumes:
+      - war_data:/deploy:ro
+    ports:
+      - "5050:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/newspaper
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    command: /bin/sh -c "echo 'Waiting for WAR...'; while ! ls /deploy/*.war 1> /dev/null 2>&1; do sleep 1; done; cp -f /deploy/*.war /usr/local/tomcat/webapps/; catalina.sh run"
+
+volumes:
+  db_data:
+  war_data:

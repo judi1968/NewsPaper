@@ -39,6 +39,13 @@ public class VehiculeController {
         return modelView ;
     }
 
+    @GetUrl("akory")
+    public ModelView akory() throws Exception{
+        ModelView modelView = new ModelView();
+        modelView.setView("pages/vehicule/akory.jsp");
+        return modelView ;
+    }
+
     @PostUrl("/vehicule")
     public ModelView saveVehicule(Vehicule vehicule) throws Exception{
         ModelView modelView = new ModelView();
