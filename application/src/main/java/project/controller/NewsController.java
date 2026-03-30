@@ -1,27 +1,16 @@
 package controller;
 
 import java.sql.Connection;
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import jframework.annotation.API;
-import jframework.annotation.Authorized;
 import jframework.annotation.Controller;
-import jframework.annotation.FormatApi;
 import jframework.annotation.GetUrl;
-import jframework.annotation.PostUrl;
-import jframework.annotation.Url;
-import jframework.session.Session;
 import jframework.tools.ModelView;
 import jframework.web.JFile;
 import model.table.News;
 import model.dto.NewsDTO;
 import pja.databases.MyConnection;
 import pja.databases.generalisation.DB;
-import jframework.annotation.RequestParam;
-import jframework.annotation.Role;
 
 @Controller
 public class NewsController {
