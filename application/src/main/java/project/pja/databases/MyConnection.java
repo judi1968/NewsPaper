@@ -1,66 +1,78 @@
 package pja.databases;
 
-
-
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.sql.DriverManager;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import java.util.Properties;
+import java.io.InputStream;
+import java.io.FileInputStream;
+import java.io.File;
 
 public class MyConnection {
-    static String ip;
-    static int port;
-    static String databaseName;
-    static String userName;
-    static String password;
-    public static void setDatabaseName(String databaseName) {
-        MyConnection.databaseName = databaseName;
-    }
-    public static void setIp(String ip) {
-        MyConnection.ip = ip;
-    }
-    public static void setPassword(String password) {
-        MyConnection.password = password;
-    }
-    public static void setPort(int port) {
-        MyConnection.port = port;
-    }
-    public static void setUserName(String userName) {
-        MyConnection.userName = userName;
-    }
-    public static String getDatabaseName() {
-        return databaseName;
-    }
-    public static String getIp() {
-        return ip;
-    }
-    public static String getPassword() {
-        return password;
-    }
-    public static int getPort() {
-        return port;
-    }
-    public static String getUserName() {
-        return userName;
+    
+    private static final Properties CONFIG = new Properties();
+
+    static {
+        // Try loading application.properties from classpath and common locations
+        String[] candidates = new String[] {
+            "application.properties",
+            "WEB-INF/application.properties",
+            "src/main/resources/application.properties",
+            "src/main/webapp/WEB-INF/application.properties",
+            "application.properties"
+        };
+
+        for (String path : candidates) {
+            try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(path)) {
+                if (is != null) {
+                    CONFIG.load(is);
+                    break;
+                }
+            } catch (Exception e) {
+                // ignore and try filesystem paths next
+            }
+            try (InputStream fis = new FileInputStream(new File(path))) {
+                CONFIG.load(fis);
+                break;
+            } catch (Exception e) {
+                // ignore and try next candidate
+            }
+        }
     }
 
-    public static Connection connect() throws Exception{
-        MyConnection.setIp("localhost");
-        MyConnection.setDatabaseName("gestion_ticketing");
-        MyConnection.setPassword("mdpprom15");
-        MyConnection.setPort(5433);
-        MyConnection.setUserName("postgres");
-
-        return MyConnection.connect(MyConnection.getIp(), MyConnection.getPort(), MyConnection.getDatabaseName(), MyConnection.getUserName(), MyConnection.getPassword());    
+    // Read env var first, then fallback to application.properties, then default
+    private static String getEnvOrDefault(String key, String defaultValue) {
+        String value = System.getenv(key);
+        if (value != null && !value.isEmpty()) return value;
+        value = CONFIG.getProperty(key);
+        return (value != null && !value.isEmpty()) ? value : defaultValue;
     }
-    public static Connection connect(String ip,int port,String databaseName,String userName,String password) throws Exception{
+
+    private static int getEnvOrDefaultInt(String key, int defaultValue) {
+        String s = getEnvOrDefault(key, Integer.toString(defaultValue));
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
+
+    private static final String DB_HOST = getEnvOrDefault("DB_HOST", "db");
+    private static final int DB_PORT = getEnvOrDefaultInt("DB_PORT", 5433);
+    private static final String DB_NAME = getEnvOrDefault("DB_NAME", "newspaper");
+    private static final String DB_USER = getEnvOrDefault("DB_USER", "postgres");
+    private static final String DB_PASSWORD = getEnvOrDefault("DB_PASSWORD", "postgres");
+    
+    public static Connection connect() throws Exception {
         Class.forName("org.postgresql.Driver");
-        return DriverManager.getConnection("jdbc:postgresql://"+ip+":"+port+"/"+databaseName+"", ""+userName+"", ""+password+"");
+        String url = String.format("jdbc:postgresql://%s:%d/%s", DB_HOST, DB_PORT, DB_NAME);
+        System.out.println("Connecting to: " + url);
+        return DriverManager.getConnection(url, DB_USER, DB_PASSWORD);
+    }
+    
+    // Méthode pour connexion personnalisée
+    public static Connection connect(String host, int port, String dbName, String user, String password) throws Exception {
+        Class.forName("org.postgresql.Driver");
+        String url = String.format("jdbc:postgresql://%s:%d/%s", host, port, dbName);
+        return DriverManager.getConnection(url, user, password);
     }
 }
