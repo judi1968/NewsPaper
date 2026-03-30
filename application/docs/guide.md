@@ -11,12 +11,12 @@ executer les un a un:
 
 ## 3 - Pour les bases de donne 
 - Créer les tables
-`docker-compose exec -T db psql -U postgres -d newspaper < database/create.sql`
+`docker-compose exec -T db psql -U postgres -d newspaper -p 5433 < database/create.sql`
 
 
 - Insérer les données
-`docker-compose exec -T db psql -U postgres -d newspaper < database/insert.sql`
+`docker-compose exec -T db psql -U postgres -d newspaper -p 5433 < database/insert.sql`
 
 
 - Supprimer les données
-`docker-compose exec -T db psql -U postgres -d newspaper < database/delete.sql`
+`docker-compose exec -T db psql -U postgres -d newspaper -p 5433 < database/delete.sql`
