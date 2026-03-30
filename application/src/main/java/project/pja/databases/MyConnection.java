@@ -54,7 +54,7 @@ public class MyConnection {
         MyConnection.setIp("localhost");
         MyConnection.setDatabaseName("gestion_ticketing");
         MyConnection.setPassword("mdpprom15");
-        MyConnection.setPort(5432);
+        MyConnection.setPort(5433);
         MyConnection.setUserName("postgres");
 
         return MyConnection.connect(MyConnection.getIp(), MyConnection.getPort(), MyConnection.getDatabaseName(), MyConnection.getUserName(), MyConnection.getPassword());    
