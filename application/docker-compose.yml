@@ -33,10 +33,6 @@ services:
       - war_data:/deploy:ro
     ports:
       - "5050:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/newspaper
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
     command: /bin/sh -c "echo 'Waiting for WAR...'; while ! ls /deploy/*.war 1> /dev/null 2>&1; do sleep 1; done; cp -f /deploy/*.war /usr/local/tomcat/webapps/; catalina.sh run"
 
 volumes:
