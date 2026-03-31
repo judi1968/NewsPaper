@@ -192,7 +192,7 @@ tinymce.init({
                                                 <input 
                                                     type="text"
                                                     class="form-control"
-                                                    name="altImagesCouverture"
+                                                    name="news.alternativeCouverture"
                                                     placeholder="Description de l'image pour le SEO"
                                                 >
                                             </div>

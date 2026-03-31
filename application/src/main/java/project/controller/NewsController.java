@@ -5,6 +5,7 @@ import java.util.List;
 
 import jframework.annotation.Controller;
 import jframework.annotation.GetUrl;
+import jframework.annotation.PostUrl;
 import jframework.tools.ModelView;
 import jframework.web.JFile;
 import model.table.News;
@@ -52,9 +53,10 @@ public class NewsController {
             newsObject.buildTitle();
             newsObject.buildHref();
             // Gérer l'image de couverture (enregistrer le fichier et stocker le chemin)
-            // JFile image = news.getImageCouverture();
-            // image.transferTo("./"); // Assurez-vous de définir le chemin de sauvegarde
-            // newsObject.setImagesCouverture(image.getName()); // Stocker le chemin de l
+            JFile image = news.getImageCouverture();
+            image.transferTo("/usr/local/tomcat/webapps/uploads/"+image.getOriginalFilename()); // Assurez-vous de définir le chemin de sauvegarde
+            newsObject.setImagesCouverture("/uploads/"+image.getOriginalFilename()); // Stocker le chemin de l
+            System.out.println("tonga teto de nety /usr/local/tomcat/webapps/uploads/"+newsObject.getImagesCouverture());
             String message = "";
            /*  if (news.getId() == null) {*/
                 message = "Actualité créée avec succès !";

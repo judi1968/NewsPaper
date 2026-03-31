@@ -18,6 +18,7 @@ services:
     volumes:
       - ./:/src  # Enlevé :ro pour permettre l'écriture
       - war_data:/artifacts
+      - uploads_data:/usr/local/tomcat/uploads 
     environment:
       TOMCAT_WEBAPPS: /artifacts
     command: /bin/sh -c "chmod +x /src/build.sh && /src/build.sh"
@@ -37,3 +38,4 @@ services:
 volumes:
   db_data:
   war_data:
+  uploads_data:

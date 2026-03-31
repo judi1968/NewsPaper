@@ -131,18 +131,32 @@ public class News {
                 '}';
     }
 
-    @ShowTable(name = "Titre", numero = 1)
+    @ShowTable(name = "Image", numero = 1)
+    public String getImageCouverture(){
+        if (this.altImagesCouverture == null) {
+            this.altImagesCouverture = "Journal";
+        }
+        if (this.imagesCouverture == null) {
+            this.imagesCouverture = "/assets/image/default-news.png";
+        }
+        return """
+                <img src="%url%" class="rounded-lg me-2" width="24" alt="%alt%">
+                """.replace("%url%", this.imagesCouverture)
+                .replace("%alt%", this.altImagesCouverture);
+    }
+
+    @ShowTable(name = "Titre", numero = 2)
     public String getTitleInfo() {
         return this.getTitle();
     }
 
-    @ShowTable(name = "Date Sortie", numero = 2)
+    @ShowTable(name = "Date Sortie", numero = 3)
     public String getDateInfo(){ 
         java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("d MMM yyyy");
         return formatter.format(datePublication);
     }
 
-    @ShowTable(name = "Action", numero = 3)
+    @ShowTable(name = "Action", numero = 4)
     public String getActionTab(){
         return "<td>" + //
                         "<div class=\"dropdown\">" + //
