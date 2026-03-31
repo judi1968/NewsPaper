@@ -7,7 +7,6 @@ import jframework.annotation.Controller;
 import jframework.annotation.GetUrl;
 import jframework.annotation.PostUrl;
 import jframework.tools.ModelView;
-import jframework.web.JFile;
 import model.table.News;
 import model.dto.NewsDTO;
 import pja.databases.MyConnection;
@@ -22,12 +21,45 @@ public class NewsController {
         ModelView modelView = new ModelView();
         Connection connection = null;
         connection = MyConnection.connect();
+        @SuppressWarnings("unchecked")
         List<News> news = (List<News>) DB.getAll(new News(), connection);
         connection.close();
         String newsList = (String) DB.getTableau(news, new News(), "Liste des nouvelles", "");
         modelView.addData("newsList", newsList);
         modelView.setView("pages/back-office/news-list.jsp");
         return modelView ;
+    }
+
+    @SuppressWarnings("unchecked")
+    @GetUrl("/news-list")
+    public ModelView showList() throws Exception {
+        ModelView modelView = new ModelView();
+        Connection connection = MyConnection.connect();
+        modelView.setView("pages/front-office/news-list.jsp");
+        modelView.addData("allNews", (List<News>) DB.getAll(new News(), connection));
+        connection.close();
+        return modelView;
+    }
+
+    @GetUrl("/show/{id}")
+    public ModelView showInFront(String id) throws Exception {
+        ModelView modelView = new ModelView();
+        Connection c = null;
+
+        try {
+            c = MyConnection.connect();
+
+            modelView.setView("pages/front-office/news-show.jsp");
+
+            modelView.addData("news", (News) DB.getById(new News(), id, c));
+                        
+        } catch (Exception e) {
+            modelView.addData("error", e.getMessage());
+        } finally {
+            if (c != null) c.close();
+        }
+        
+        return modelView;
     }
 
     @GetUrl("/news-form")
