@@ -7,6 +7,7 @@ import jframework.annotation.Controller;
 import jframework.annotation.GetUrl;
 import jframework.annotation.PostUrl;
 import jframework.tools.ModelView;
+import jframework.web.JFile;
 import model.table.News;
 import model.dto.NewsDTO;
 import pja.databases.MyConnection;
