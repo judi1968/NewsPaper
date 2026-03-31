@@ -1,0 +1,2 @@
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/icons/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/front-office/style.css">
