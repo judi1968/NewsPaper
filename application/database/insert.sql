@@ -18,7 +18,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-01-15',
     'assets/img/news-default.jpg',
     'Lancement de la plateforme SEO Web Design',
-    '/2024/01/15/lancement-officiel-de-notre-plateforme-seo-web-design_1.html'
+    '2024/01/15/lancement-officiel-de-notre-plateforme-seo-web-design_1.html'
 ),
 (
     'Nouvelle fonctionnalité Analyse SEO en temps réel',
@@ -36,7 +36,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-02-20',
     'assets/img/news-default.jpg',
     'Analyse SEO en temps réel',
-    '/2024/02/20/nouvelle-fonctionnalite-analyse-seo-en-temps-reel_2.html'
+    '2024/02/20/nouvelle-fonctionnalite-analyse-seo-en-temps-reel_2.html'
 ),
 (
     'Webinaire gratuit Les bonnes pratiques SEO pour 2024',
@@ -54,7 +54,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-03-01',
     'assets/img/news-default.jpg',
     'Webinaire SEO 2024',
-    '/2024/03/01/webinaire-gratuit-les-bonnes-pratiques-seo-pour-2024_3.html'
+    '2024/03/01/webinaire-gratuit-les-bonnes-pratiques-seo-pour-2024_3.html'
 ),
 (
     'Succès Notre site atteint 10000 visites par mois',
@@ -71,7 +71,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-03-10',
     'assets/img/news-default.jpg',
     '10 000 visites atteintes',
-    '/2024/03/10/succes-notre-site-atteint-10000-visites-par-mois_4.html'
+    '2024/03/10/succes-notre-site-atteint-10000-visites-par-mois_4.html'
 ),
 (
     'Mise à jour majeure Nouveau tableau de bord amélioré',
@@ -89,7 +89,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-03-25',
     'assets/img/news-default.jpg',
     'Nouveau tableau de bord',
-    '/2024/03/25/mise-a-jour-majeure-nouveau-tableau-de-bord-ameliore_5.html'
+    '2024/03/25/mise-a-jour-majeure-nouveau-tableau-de-bord-ameliore_5.html'
 ),
 (
     'Application mobile SEO Web Design disponible',
@@ -106,7 +106,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-04-05',
     'assets/img/news-default.jpg',
     'Application mobile SEO Web Design',
-    '/2024/04/05/application-mobile-seo-web-design-disponible_6.html'
+    '2024/04/05/application-mobile-seo-web-design-disponible_6.html'
 ),
 (
     'Prix de l innovation SEO 2024',
@@ -123,7 +123,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-04-18',
     'assets/img/news-default.jpg',
     'Prix innovation SEO 2024',
-    '/2024/04/18/prix-de-l-innovation-seo-2024_7.html'
+    '2024/04/18/prix-de-l-innovation-seo-2024_7.html'
 ),
 (
     'Nouvelle formation Maîtrisez le SEO en 30 jours',
@@ -141,7 +141,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-05-01',
     'assets/img/news-default.jpg',
     'Formation SEO en 30 jours',
-    '/2024/05/01/nouvelle-formation-maitrisez-le-seo-en-30-jours_8.html'
+    '2024/05/01/nouvelle-formation-maitrisez-le-seo-en-30-jours_8.html'
 ),
 (
     'Partenariat avec Google Accès aux données officielles',
@@ -158,7 +158,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-05-15',
     'assets/img/news-default.jpg',
     'Partenariat avec Google',
-    '/2024/05/15/partenariat-avec-google-acces-aux-donnees-officielles_9.html'
+    '2024/05/15/partenariat-avec-google-acces-aux-donnees-officielles_9.html'
 ),
 (
     'Optimisation technique Réduction du temps de chargement de 50%',
@@ -175,7 +175,7 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     '2024-06-01',
     'assets/img/news-default.jpg',
     'Optimisation temps de chargement',
-    '/2024/06/01/optimisation-technique-reduction-du-temps-de-chargement-de-50_10.html'
+    '2024/06/01/optimisation-technique-reduction-du-temps-de-chargement-de-50_10.html'
 );
 
 -- ========================================
