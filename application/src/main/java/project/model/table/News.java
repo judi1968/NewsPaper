@@ -1,6 +1,7 @@
 package model.table;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import pja.databases.generalisation.annotation.ShowTable;
@@ -172,10 +173,19 @@ public class News {
     }
 
     public void buildHref() {
-        this.href = HtmlUtils.getHref(this.contenu);
+
+        this.href = formatDateToString(this.datePublication)+"/"+HtmlUtils.getHref(this.contenu)+"_"+this.getId()+".html";
     }
 
     public void buildTitle() {
         this.title = HtmlUtils.extractH1Content(this.contenu);
+    }
+
+    public static String formatDateToString(Date date) {
+        if (date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        return sdf.format(date);
     }
 }

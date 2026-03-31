@@ -51,7 +51,6 @@ public class NewsController {
             newsObject.setDatePublication(news.getDatePublication());
             newsObject.setAltImagesCouverture(news.getAlternativeCouverture());
             newsObject.buildTitle();
-            newsObject.buildHref();
             // Gérer l'image de couverture (enregistrer le fichier et stocker le chemin)
             JFile image = news.getImageCouverture();
             image.transferTo("/usr/local/tomcat/webapps/uploads/"+image.getOriginalFilename()); // Assurez-vous de définir le chemin de sauvegarde
@@ -65,6 +64,8 @@ public class NewsController {
             }*/
             
             // Sauvegarde avec votre DB.save
+            DB.save(newsObject, connection);
+                        newsObject.buildHref();
             DB.save(newsObject, connection);
             connection.commit();
             
