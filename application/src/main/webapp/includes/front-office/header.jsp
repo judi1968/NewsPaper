@@ -6,7 +6,7 @@
         <h1>NewsPaper</h1>
     </div>
     <nav>
-        <a class="nav-link" href="/all">
+        <a class="nav-link" href="${pageContext.request.contextPath}/">
             <i class="bi bi-grid-fill"></i>
             All
         </a>
