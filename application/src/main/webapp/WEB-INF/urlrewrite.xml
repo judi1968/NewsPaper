@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE urlrewrite
-    PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
-    "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN" "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
 
 <urlrewrite>
+    <!-- ! Show -->
+    <rule>
+        <from>^/\d{4}/\d{2}/\d{2}/[a-zA-Z0-9\-]+_([0-9]+)\.html$</from>
+        <to>/show/$1</to>
+    </rule>
 
-    <!-- Rules  -->
+    <rule>
+        <from>^/$</from>
+        <to>/news-list</to>
+    </rule>
 </urlrewrite>
