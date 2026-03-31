@@ -16,9 +16,8 @@ import pja.databases.generalisation.DB;
 @Controller
 public class NewsController {
 
-
     @GetUrl("/news")
-    public ModelView list() throws Exception{
+    public ModelView list() throws Exception {
         ModelView modelView = new ModelView();
         Connection connection = null;
         connection = MyConnection.connect();
@@ -28,7 +27,7 @@ public class NewsController {
         String newsList = (String) DB.getTableau(news, new News(), "Liste des nouvelles", "");
         modelView.addData("newsList", newsList);
         modelView.setView("pages/back-office/news-list.jsp");
-        return modelView ;
+        return modelView;
     }
 
     @SuppressWarnings("unchecked")
@@ -45,21 +44,13 @@ public class NewsController {
     @GetUrl("/show/{id}")
     public ModelView showInFront(String id) throws Exception {
         ModelView modelView = new ModelView();
-        Connection c = null;
-
-        try {
-            c = MyConnection.connect();
-
-            modelView.setView("pages/front-office/news-show.jsp");
-
-            modelView.addData("news", (News) DB.getById(new News(), id, c));
-                        
-        } catch (Exception e) {
-            modelView.addData("error", e.getMessage());
-        } finally {
-            if (c != null) c.close();
-        }
         
+        Connection c = MyConnection.connect();
+
+        modelView.setView("pages/front-office/news-show.jsp");
+        modelView.addData("news", (News) DB.getById(new News(), id, c));
+
+        c.close();
         return modelView;
     }
 
@@ -75,7 +66,7 @@ public class NewsController {
     public ModelView saveOrUpdateNews(NewsDTO news) throws Exception {
         ModelView modelView = new ModelView();
         Connection connection = null;
-        
+
         try {
             connection = MyConnection.connect();
             connection.setAutoCommit(false);
@@ -86,24 +77,29 @@ public class NewsController {
             newsObject.buildTitle();
             // Gérer l'image de couverture (enregistrer le fichier et stocker le chemin)
             JFile image = news.getImageCouverture();
-            image.transferTo("/usr/local/tomcat/webapps/uploads/"+image.getOriginalFilename()); // Assurez-vous de définir le chemin de sauvegarde
-            newsObject.setImagesCouverture("/uploads/"+image.getOriginalFilename()); // Stocker le chemin de l
-            System.out.println("tonga teto de nety /usr/local/tomcat/webapps/uploads/"+newsObject.getImagesCouverture());
+            image.transferTo("/usr/local/tomcat/webapps/uploads/" + image.getOriginalFilename()); // Assurez-vous de
+                                                                                                  // définir le chemin
+                                                                                                  // de sauvegarde
+            newsObject.setImagesCouverture("/uploads/" + image.getOriginalFilename()); // Stocker le chemin de l
+            System.out.println(
+                    "tonga teto de nety /usr/local/tomcat/webapps/uploads/" + newsObject.getImagesCouverture());
             String message = "";
-           /*  if (news.getId() == null) {*/
-                message = "Actualité créée avec succès !";
-            /* } else {
-                message = "Actualité modifiée avec succès !";
-            }*/
-            
+            /* if (news.getId() == null) { */
+            message = "Actualité créée avec succès !";
+            /*
+             * } else {
+             * message = "Actualité modifiée avec succès !";
+             * }
+             */
+
             // Sauvegarde avec votre DB.save
             DB.save(newsObject, connection);
-                        newsObject.buildHref();
+            newsObject.buildHref();
             DB.save(newsObject, connection);
             connection.commit();
-            
+
             modelView.addData("success", message);
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             if (connection != null) {
@@ -117,7 +113,7 @@ public class NewsController {
         }
 
         modelView.setView("pages/back-office/news-form.jsp");
-        return modelView ;
+        return modelView;
 
     }
 
