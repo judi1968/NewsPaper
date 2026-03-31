@@ -16,9 +16,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Découvrez nos outils innovants pour optimiser votre site web et améliorer votre visibilité sur les moteurs de recherche.</p>',
     '2024-01-15',
-    '/images/news/lancement-plateforme.jpg',
+    'assets/img/news-default.jpg',
     'Lancement de la plateforme SEO Web Design',
-    'lancement-officiel-de-notre-plateforme-seo-web-design'
+    '/2024/01/15/lancement-officiel-de-notre-plateforme-seo-web-design_1.html'
 ),
 (
     'Nouvelle fonctionnalité Analyse SEO en temps réel',
@@ -34,9 +34,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Une fonctionnalité indispensable pour rester compétitif sur les moteurs de recherche.</p>',
     '2024-02-20',
-    '/images/news/analyse-seo-temps-reel.jpg',
+    'assets/img/news-default.jpg',
     'Analyse SEO en temps réel',
-    'nouvelle-fonctionnalite-analyse-seo-en-temps-reel'
+    '/2024/02/20/nouvelle-fonctionnalite-analyse-seo-en-temps-reel_2.html'
 ),
 (
     'Webinaire gratuit Les bonnes pratiques SEO pour 2024',
@@ -52,9 +52,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     <p>Date : 15 mars 2024 à 14h00</p>
     <p>Inscription gratuite et obligatoire. Places limitées !</p>',
     '2024-03-01',
-    '/images/news/webinaire-seo-2024.jpg',
+    'assets/img/news-default.jpg',
     'Webinaire SEO 2024',
-    'webinaire-gratuit-les-bonnes-pratiques-seo-pour-2024'
+    '/2024/03/01/webinaire-gratuit-les-bonnes-pratiques-seo-pour-2024_3.html'
 ),
 (
     'Succès Notre site atteint 10000 visites par mois',
@@ -69,9 +69,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Grâce à votre confiance et à la qualité de nos services, nous avons franchi ce cap important. Merci à tous nos utilisateurs !</p>',
     '2024-03-10',
-    '/images/news/10000-visites.jpg',
+    'assets/img/news-default.jpg',
     '10 000 visites atteintes',
-    'succes-notre-site-atteint-10000-visites-par-mois'
+    '/2024/03/10/succes-notre-site-atteint-10000-visites-par-mois_4.html'
 ),
 (
     'Mise à jour majeure Nouveau tableau de bord amélioré',
@@ -87,9 +87,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Une expérience utilisateur encore plus fluide et efficace.</p>',
     '2024-03-25',
-    '/images/news/nouveau-tableau-bord.jpg',
+    'assets/img/news-default.jpg',
     'Nouveau tableau de bord',
-    'mise-a-jour-majeure-nouveau-tableau-de-bord-ameliore'
+    '/2024/03/25/mise-a-jour-majeure-nouveau-tableau-de-bord-ameliore_5.html'
 ),
 (
     'Application mobile SEO Web Design disponible',
@@ -104,9 +104,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Disponible sur iOS et Android. Gérez vos projets, consultez vos rapports et recevez des alertes en temps réel directement sur votre mobile.</p>',
     '2024-04-05',
-    '/images/news/app-mobile-seo.jpg',
+    'assets/img/news-default.jpg',
     'Application mobile SEO Web Design',
-    'application-mobile-seo-web-design-disponible'
+    '/2024/04/05/application-mobile-seo-web-design-disponible_6.html'
 ),
 (
     'Prix de l innovation SEO 2024',
@@ -121,9 +121,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Un grand merci à toute l''équipe et à nos utilisateurs !</p>',
     '2024-04-18',
-    '/images/news/prix-innovation.jpg',
+    'assets/img/news-default.jpg',
     'Prix innovation SEO 2024',
-    'prix-de-l-innovation-seo-2024'
+    '/2024/04/18/prix-de-l-innovation-seo-2024_7.html'
 ),
 (
     'Nouvelle formation Maîtrisez le SEO en 30 jours',
@@ -139,9 +139,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Offre de lancement : -30% pour les 100 premiers inscrits !</p>',
     '2024-05-01',
-    '/images/news/formation-seo-30-jours.jpg',
+    'assets/img/news-default.jpg',
     'Formation SEO en 30 jours',
-    'nouvelle-formation-maitrisez-le-seo-en-30-jours'
+    '/2024/05/01/nouvelle-formation-maitrisez-le-seo-en-30-jours_8.html'
 ),
 (
     'Partenariat avec Google Accès aux données officielles',
@@ -156,9 +156,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Profitez d''un accès privilégié aux données Google directement depuis notre plateforme.</p>',
     '2024-05-15',
-    '/images/news/partenariat-google.jpg',
+    'assets/img/news-default.jpg',
     'Partenariat avec Google',
-    'partenariat-avec-google-acces-aux-donnees-officielles'
+    '/2024/05/15/partenariat-avec-google-acces-aux-donnees-officielles_9.html'
 ),
 (
     'Optimisation technique Réduction du temps de chargement de 50%',
@@ -173,9 +173,9 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
     </ul>
     <p>Profitez d''une expérience utilisateur encore plus fluide et rapide.</p>',
     '2024-06-01',
-    '/images/news/optimisation-vitesse.jpg',
+    'assets/img/news-default.jpg',
     'Optimisation temps de chargement',
-    'optimisation-technique-reduction-du-temps-de-chargement-de-50'
+    '/2024/06/01/optimisation-technique-reduction-du-temps-de-chargement-de-50_10.html'
 );
 
 -- ========================================
@@ -184,60 +184,60 @@ INSERT INTO news (title,contenu, date_publication, images_couverture, alt_images
 
 -- Images pour l'actualité 1 (Lancement)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/1/ceremonie-lancement.jpg', 'Cérémonie de lancement de la plateforme', 1),
-('/images/news/1/equipe-seo.jpg', 'Équipe SEO Web Design lors du lancement', 1),
-('/images/news/1/demo-plateforme.jpg', 'Démonstration de la plateforme', 1);
+('assets/img/news-default.jpg', 'Cérémonie de lancement de la plateforme', 1),
+('assets/img/news-default.jpg', 'Équipe SEO Web Design lors du lancement', 1),
+('assets/img/news-default.jpg', 'Démonstration de la plateforme', 1);
 
 -- Images pour l'actualité 2 (Analyse SEO)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/2/dashboard-analytics.jpg', 'Dashboard analytics SEO', 2),
-('/images/news/2/graphique-performance.jpg', 'Graphique de performance SEO', 2),
-('/images/news/2/suivi-mots-cles.jpg', 'Suivi des mots-clés en temps réel', 2);
+('assets/img/news-default.jpg', 'Dashboard analytics SEO', 2),
+('assets/img/news-default.jpg', 'Graphique de performance SEO', 2),
+('assets/img/news-default.jpg', 'Suivi des mots-clés en temps réel', 2);
 
 -- Images pour l'actualité 3 (Webinaire)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/3/presentation-webinaire.jpg', 'Présentation du webinaire SEO', 3),
-('/images/news/3/expert-seo.jpg', 'Expert SEO animant le webinaire', 3),
-('/images/news/3/session-questions.jpg', 'Session de questions-réponses', 3);
+('assets/img/news-default.jpg', 'Présentation du webinaire SEO', 3),
+('assets/img/news-default.jpg', 'Expert SEO animant le webinaire', 3),
+('assets/img/news-default.jpg', 'Session de questions-réponses', 3);
 
 -- Images pour l'actualité 4 (10 000 visites)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/4/graphique-croissance.jpg', 'Graphique de croissance des visites', 4),
-('/images/news/4/chiffres-cles.jpg', 'Infographie des chiffres clés', 4),
-('/images/news/4/celebrations.jpg', 'Célébration du succès', 4);
+('assets/img/news-default.jpg', 'Graphique de croissance des visites', 4),
+('assets/img/news-default.jpg', 'Infographie des chiffres clés', 4),
+('assets/img/news-default.jpg', 'Célébration du succès', 4);
 
 -- Images pour l'actualité 5 (Tableau de bord)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/5/nouvelle-interface.jpg', 'Nouvelle interface du tableau de bord', 5),
-('/images/news/5/rapports-personnalises.jpg', 'Rapports personnalisés', 5),
-('/images/news/5/analyses-avancees.jpg', 'Analyses avancées SEO', 5);
+('assets/img/news-default.jpg', 'Nouvelle interface du tableau de bord', 5),
+('assets/img/news-default.jpg', 'Rapports personnalisés', 5),
+('assets/img/news-default.jpg', 'Analyses avancées SEO', 5);
 
 -- Images pour l'actualité 6 (Application mobile)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/6/app-ios.jpg', 'Application iOS SEO Web Design', 6),
-('/images/news/6/app-android.jpg', 'Application Android SEO Web Design', 6),
-('/images/news/6/notifications-push.jpg', 'Notifications push SEO', 6);
+('assets/img/news-default.jpg', 'Application iOS SEO Web Design', 6),
+('assets/img/news-default.jpg', 'Application Android SEO Web Design', 6),
+('assets/img/news-default.jpg', 'Notifications push SEO', 6);
 
 -- Images pour l'actualité 7 (Prix innovation)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/7/ceremonie-prix.jpg', 'Cérémonie de remise des prix', 7),
-('/images/news/7/trophee-innovation.jpg', 'Trophée innovation SEO', 7),
-('/images/news/7/equipe-recompensee.jpg', 'Équipe récompensée', 7);
+('assets/img/news-default.jpg', 'Cérémonie de remise des prix', 7),
+('assets/img/news-default.jpg', 'Trophée innovation SEO', 7),
+('assets/img/news-default.jpg', 'Équipe récompensée', 7);
 
 -- Images pour l'actualité 8 (Formation)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/8/certificat-formation.jpg', 'Certificat de formation SEO', 8),
-('/images/news/8/cours-video.jpg', 'Cours vidéo en ligne', 8),
-('/images/news/8/exercices-pratiques.jpg', 'Exercices pratiques SEO', 8);
+('assets/img/news-default.jpg', 'Certificat de formation SEO', 8),
+('assets/img/news-default.jpg', 'Cours vidéo en ligne', 8),
+('assets/img/news-default.jpg', 'Exercices pratiques SEO', 8);
 
 -- Images pour l'actualité 9 (Partenariat Google)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/9/logo-google-partner.jpg', 'Logo Google Partner', 9),
-('/images/news/9/integration-search-console.jpg', 'Intégration Google Search Console', 9),
-('/images/news/9/donnees-officielles.jpg', 'Données officielles Google', 9);
+('assets/img/news-default.jpg', 'Logo Google Partner', 9),
+('assets/img/news-default.jpg', 'Intégration Google Search Console', 9),
+('assets/img/news-default.jpg', 'Données officielles Google', 9);
 
 -- Images pour l'actualité 10 (Optimisation vitesse)
 INSERT INTO images_news (url_image, alt_image, id_news) VALUES
-('/images/news/10/comparaison-vitesse.jpg', 'Comparaison avant-après optimisation', 10),
-('/images/news/10/performance-technique.jpg', 'Performance technique améliorée', 10),
-('/images/news/10/test-vitesse.jpg', 'Test de vitesse de chargement', 10);
+('assets/img/news-default.jpg', 'Comparaison avant-après optimisation', 10),
+('assets/img/news-default.jpg', 'Performance technique améliorée', 10),
+('assets/img/news-default.jpg', 'Test de vitesse de chargement', 10);
